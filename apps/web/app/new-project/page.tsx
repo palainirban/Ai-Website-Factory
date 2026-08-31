@@ -1,3 +1,5 @@
+import { NewProjectForm } from "../../components/NewProjectForm";
+
 export default function NewProjectPage() {
   return (
     <main>
@@ -6,17 +8,7 @@ export default function NewProjectPage() {
         <h1>Start a new website project</h1>
         <p>Give the AI the essentials. Missing details can be handled later.</p>
       </header>
-
-      <form>
-        <label>Business name<input placeholder="e.g. Deep Enterprise" /></label>
-        <label>What does the business do?<textarea placeholder="Describe products, services and business model." /></label>
-        <label>Location / market<input placeholder="e.g. Kolkata, West Bengal" /></label>
-        <label>Target customer<input placeholder="Who should this website attract?" /></label>
-        <label>Main website goal<select defaultValue=""><option value="" disabled>Select one</option><option>Generate leads</option><option>Sell products</option><option>Get bookings</option><option>Build trust</option></select></label>
-        <label>Preferred style (optional)<input placeholder="Premium, minimal, bold..." /></label>
-        <button type="button">Generate Project Blueprint</button>
-      </form>
-
+      <NewProjectForm />
       <style>{`
         main { max-width: 760px; margin: 0 auto; padding: 32px 24px 80px; }
         header a { font-weight: 700; }
@@ -27,6 +19,9 @@ export default function NewProjectPage() {
         input, textarea, select { width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: white; }
         textarea { min-height: 120px; resize: vertical; }
         button { margin-top: 12px; padding: 16px 20px; border: 0; border-radius: 10px; background: var(--ink); color: white; font-weight: 700; cursor: pointer; }
+        button:disabled { opacity: .6; cursor: wait; }
+        .error { color: #b42318; margin: 0; }
+        .status { color: var(--accent); margin: 0; font-weight: 700; }
       `}</style>
     </main>
   );
